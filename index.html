@@ -162,6 +162,52 @@
   footer .cols { display: grid; gap: 4px; }
   footer .legal { width: 100%; border-top: 1px solid #3b4a6e; padding-top: 18px; font-size: 13px; color: #a9a497; display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; }
 
+  /* Интерактив: квиз, тест, калькулятор, вкладки, кнопка связи */
+  [hidden] { display: none !important; }
+  .box { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 40px; max-width: 820px; }
+  .steps { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13.5px; font-weight: 600; color: var(--cocoa-soft); }
+  .bar { height: 6px; border-radius: 6px; background: var(--cream-2); margin: 12px 0 26px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--gold); border-radius: 6px; transition: width .25s; }
+  .box h3 { font-size: 26px; }
+  .opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+  .opt { font: 600 16px var(--sans); color: var(--navy); background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; text-align: left; cursor: pointer; transition: border-color .15s, background .15s, transform .15s; }
+  .opt:hover { border-color: var(--gold); background: #fffdf8; transform: translateY(-1px); }
+  .opt:focus-visible, .tab:focus-visible, .back:focus-visible, .fab-btn:focus-visible, input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .back { margin-top: 22px; background: none; border: 0; padding: 6px 0; font: 600 14.5px var(--sans); color: var(--cocoa-soft); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+  .result .big { font: 600 clamp(34px, 5vw, 48px)/1.1 var(--serif); color: var(--navy); margin: 10px 0 6px; }
+  .result .big small { font: 500 16px var(--sans); color: var(--muted); }
+  .result p { color: var(--muted); margin: 10px 0 0; }
+  .result .acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .risk-low { color: #3f7a4f !important; } .risk-mid { color: var(--gold-dark) !important; } .risk-high { color: #a8432f !important; }
+
+  .calc { margin-top: 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+  .calc label { font-size: 15px; color: var(--cocoa); }
+  .calc output { display: block; font: 600 34px/1.1 var(--serif); color: var(--navy); margin: 6px 0 14px; }
+  input[type=range] { width: 100%; padding: 0; border: 0; background: transparent; accent-color: var(--gold-dark); height: 28px; cursor: pointer; }
+  .calc .rows { display: grid; gap: 10px; font-size: 15.5px; }
+  .calc .rows div { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 10px; color: var(--muted); }
+  .calc .rows b { color: var(--navy); white-space: nowrap; }
+  .calc .save { border: 0 !important; font-size: 17px; color: var(--ink) !important; }
+  .calc .save b { font: 600 26px var(--serif); color: var(--gold-dark); }
+  .calc .note { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin: 0; }
+
+  .tabs { display: inline-flex; gap: 6px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; margin-bottom: 26px; }
+  .tab { font: 600 15px var(--sans); color: var(--navy); background: transparent; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+  .tab[aria-selected=true] { background: var(--navy); color: var(--cream); }
+
+  details.more { border: 0; margin-top: 12px; }
+  details.more summary { font: 600 15px var(--sans); color: var(--gold-dark); padding: 4px 0; text-decoration: underline; text-underline-offset: 4px; display: inline-block; }
+  details.more summary::after { content: none; }
+  details.more[open] summary { color: var(--cocoa-soft); }
+  details.more p { margin: 10px 0 0; max-width: none; }
+
+  .fab { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .fab-btn { width: 60px; height: 60px; border-radius: 50%; border: 0; background: var(--gold); color: var(--navy); cursor: pointer; box-shadow: 0 12px 28px -10px rgba(31,42,68,.6); display: grid; place-items: center; }
+  .fab-btn svg { width: 28px; height: 28px; }
+  .fab-menu { display: grid; gap: 8px; }
+  .fab-menu a { background: var(--navy); color: var(--cream); text-decoration: none; font: 600 15px var(--sans); padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 24px -12px rgba(31,42,68,.7); text-align: center; }
+  .fab-menu a:hover { background: var(--navy-2); }
+
   /* Вопросы */
   .faq { max-width: 820px; }
   details { border-bottom: 1px solid var(--line); }
@@ -219,6 +265,13 @@
     .lead-box { padding: 26px 20px; gap: 28px; }
     .hero-cta .btn { width: 100%; }
     .roles.g4 { grid-template-columns: repeat(2, 1fr); }
+    .box { padding: 24px 18px; border-radius: 18px; }
+    .box h3 { font-size: 22px; }
+    .opts { grid-template-columns: 1fr; }
+    .calc { grid-template-columns: 1fr; gap: 22px; }
+    .result .acts .btn { width: 100%; }
+    .tab { padding: 10px 14px; font-size: 14px; }
+    footer { padding-bottom: 96px; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 </style>
@@ -338,6 +391,19 @@
         </ul>
       </div>
     </div>
+    <div class="card calc" id="calc">
+      <div>
+        <label for="salary">Подвиньте ползунок: оклад штатного бухгалтера в месяц</label>
+        <output id="salary-out" for="salary">70 000 ₽</output>
+        <input type="range" id="salary" min="40000" max="150000" step="5000" value="70000" aria-label="Оклад штатного бухгалтера в месяц">
+      </div>
+      <div class="rows">
+        <div><span>Штатный бухгалтер обходится</span><b id="c-staff">—</b></div>
+        <div><span>Обслуживание у нас</span><b>от 15 000 ₽ / мес</b></div>
+        <div class="save"><span>Экономия за год</span><b id="c-save">—</b></div>
+      </div>
+      <p class="note">Примерный расчёт: оклад + страховые взносы 30% + отпускные (один оклад в год). Для части малого бизнеса ставка взносов ниже. Рабочее место и программы не учтены.</p>
+    </div>
     <div class="grid g4 facts">
       <div class="card"><b>Ни одного штрафа с 2015 года</b><span>Сдаём всё в срок и знаем требования налоговой.</span></div>
       <div class="card"><b>УСН, ОСНО, патент</b><span>Ведём ИП и ООО на любой системе налогообложения.</span></div>
@@ -354,18 +420,23 @@
       <h2>Абонентское обслуживание</h2>
       <p class="lead">Фиксированная сумма в месяц, без доплат «за каждый документ». Точную стоимость считаем после бесплатного аудита.</p>
     </div>
-    <div class="grid g3">
-      <div class="card plan">
+    <div class="tabs" role="tablist" aria-label="Для кого тариф">
+      <button class="tab" role="tab" aria-selected="true" data-tab="all">Все тарифы</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ip">Для ИП</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ooo">Для ООО</button>
+    </div>
+    <div class="grid g3" id="plan-grid">
+      <div class="card plan" data-for="ip">
         <div class="for">Для ИП</div><h3>Старт</h3>
         <div class="price">от 10 000 ₽ <small>/ месяц</small></div>
         <ul><li>Учёт и отчётность ИП</li><li>Расчёт налогов и взносов</li><li>Напоминания о платежах</li><li>Консультации бухгалтера</li></ul>
-        <a class="btn btn-line" href="#request">Рассчитать стоимость</a>
+        <a class="btn btn-line" href="#quiz">Рассчитать стоимость</a>
       </div>
-      <div class="card plan best">
+      <div class="card plan best" data-for="ooo">
         <div class="for">Для ООО · выбирают чаще</div><h3>Бизнес</h3>
         <div class="price">от 15 000 ₽ <small>/ месяц</small></div>
         <ul><li>Полный бухгалтерский и налоговый учёт</li><li>Зарплата и кадры</li><li>Личный бухгалтер</li><li>Ответы на требования налоговой</li></ul>
-        <a class="btn btn-gold" href="#request">Рассчитать стоимость</a>
+        <a class="btn btn-gold" href="#quiz">Рассчитать стоимость</a>
       </div>
       <div class="card plan">
         <div class="for">Для растущих компаний</div><h3>Под ключ</h3>
@@ -374,6 +445,17 @@
         <a class="btn btn-line" href="#request">Обсудить условия</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Расчёт за 1 минуту</div>
+      <h2>Узнайте стоимость <em>для вашего бизнеса</em></h2>
+      <p class="lead">Пять коротких вопросов — и вы увидите ориентир по цене.</p>
+    </div>
+    <div class="box" id="quiz-box" aria-live="polite"></div>
   </div>
 </section>
 
@@ -401,10 +483,10 @@
       <p class="lead">Несколько примеров из практики. Названия компаний не раскрываем.</p>
     </div>
     <div class="grid g2">
-      <div class="card case"><div class="tag">Металлообработка · гособоронзаказ</div><h3>Требование прокуратуры по документам</h3><p>Компания работает по государственному оборонному заказу. Подготовили и передали документы по требованию прокуратуры.</p><p class="res">Документы прошли проверку без нареканий.</p></div>
-      <div class="card case"><div class="tag">Онлайн-школа · ИП на патенте</div><h3>Учёт доходов и расчёты с самозанятыми</h3><p>Ведём учёт доходов по курсам, расчёты с самозанятыми преподавателями и приём оплат от иностранных клиентов, консультируем по договорам.</p><p class="res">Бухгалтер закрывает сразу несколько задач владельца.</p></div>
-      <div class="card case"><div class="tag">Торговля · минеральная вода</div><h3>«Честный знак» и запрос налоговой</h3><p>Настроили обмен данными между системой маркировки «Честный знак» и 1С, подготовили ответ на запрос налоговой за прошлый год.</p><p class="res">Маркировка и учёт сходятся в одной базе.</p></div>
-      <div class="card case"><div class="tag">Пиломатериалы · ИП</div><h3>Иностранные работники и отраслевая отчётность</h3><p>Оформляем сотрудников-иностранцев и их патенты, ведём отчётность в лесной системе учёта ФГИС ЛК.</p><p class="res">Сопровождаем клиента больше двух лет.</p></div>
+      <div class="card case"><div class="tag">Металлообработка · гособоронзаказ</div><h3>Требование прокуратуры по документам</h3><details class="more"><summary>Читать подробнее</summary><p>Компания работает по государственному оборонному заказу. Подготовили и передали документы по требованию прокуратуры.</p><p class="res">Документы прошли проверку без нареканий.</p></details></div>
+      <div class="card case"><div class="tag">Онлайн-школа · ИП на патенте</div><h3>Учёт доходов и расчёты с самозанятыми</h3><details class="more"><summary>Читать подробнее</summary><p>Ведём учёт доходов по курсам, расчёты с самозанятыми преподавателями и приём оплат от иностранных клиентов, консультируем по договорам.</p><p class="res">Бухгалтер закрывает сразу несколько задач владельца.</p></details></div>
+      <div class="card case"><div class="tag">Торговля · минеральная вода</div><h3>«Честный знак» и запрос налоговой</h3><details class="more"><summary>Читать подробнее</summary><p>Настроили обмен данными между системой маркировки «Честный знак» и 1С, подготовили ответ на запрос налоговой за прошлый год.</p><p class="res">Маркировка и учёт сходятся в одной базе.</p></details></div>
+      <div class="card case"><div class="tag">Пиломатериалы · ИП</div><h3>Иностранные работники и отраслевая отчётность</h3><details class="more"><summary>Читать подробнее</summary><p>Оформляем сотрудников-иностранцев и их патенты, ведём отчётность в лесной системе учёта ФГИС ЛК.</p><p class="res">Сопровождаем клиента больше двух лет.</p></details></div>
     </div>
   </div>
 </section>
@@ -472,7 +554,18 @@
   </div>
 </section>
 
-<section id="request" style="padding-top:0">
+<section id="check" class="pains">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Тест</div>
+      <h2>Проверьте свою бухгалтерию</h2>
+      <p class="lead">Шесть вопросов «да / нет». Покажем, насколько ваш учёт под риском.</p>
+    </div>
+    <div class="box" id="check-box" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="request">
   <div class="wrap">
     <div class="lead-box">
       <div>
@@ -494,7 +587,7 @@
         <label>Как вас зовут<input name="name" autocomplete="name" required></label>
         <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7" required></label>
         <label>Коротко о бизнесе (необязательно)<textarea name="about" placeholder="Например: ООО на упрощёнке, 5 сотрудников"></textarea></label>
-        <button class="btn btn-gold" type="submit">Отправить заявку</button>
+        <button class="btn btn-gold" type="submit">Отправить в WhatsApp</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>
     </div>
@@ -513,6 +606,17 @@
 </div>
 
 </main>
+
+<div class="fab">
+  <div class="fab-menu" id="fab-menu" hidden>
+    <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
+    <a href="tel:+79157770609">Позвонить</a>
+  </div>
+  <button class="fab-btn" id="fab-btn" aria-expanded="false" aria-controls="fab-menu" aria-label="Связаться с нами">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  </button>
+</div>
 
 <footer>
   <div class="wrap">
@@ -537,7 +641,13 @@
 </footer>
 
 <script>
-  // Прототип: заявка никуда не отправляется, только показываем сообщение
+  var WA = 'https://wa.me/79157770609?text=';
+  var TG = 'https://t.me/anastasiial2018?text=';
+  function rub(n) { return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function link(cls, text, href) { var a = el('a', cls, text); a.href = href; a.target = '_blank'; a.rel = 'noopener'; return a; }
+
+  // Заявка: открываем WhatsApp с готовым текстом
   document.getElementById('lead-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var msg = document.getElementById('form-msg');
@@ -545,7 +655,126 @@
       msg.textContent = 'Укажите имя и телефон, чтобы мы могли связаться.';
       return;
     }
-    msg.textContent = 'Это прототип: отправка заявок пока не подключена.';
+    var text = 'Здравствуйте! Хочу бесплатный аудит бухгалтерии.\nИмя: ' + this.name.value.trim() + '\nТелефон: ' + this.phone.value.trim();
+    if (this.about.value.trim()) text += '\nО бизнесе: ' + this.about.value.trim();
+    msg.textContent = 'Открываем WhatsApp — нажмите «Отправить» в чате.';
+    window.open(WA + encodeURIComponent(text), '_blank', 'noopener');
+  });
+
+  // Общий движок для квиза и теста
+  function runSteps(box, questions, showResult) {
+    var answers = [], i = 0;
+    function draw() {
+      box.textContent = '';
+      if (i >= questions.length) { showResult(box, answers, function () { answers = []; i = 0; draw(); }); return; }
+      var q = questions[i];
+      var top = el('div', 'steps');
+      top.appendChild(el('span', null, 'Вопрос ' + (i + 1) + ' из ' + questions.length));
+      box.appendChild(top);
+      var bar = el('div', 'bar'), fill = el('i');
+      fill.style.width = (i / questions.length * 100) + '%';
+      bar.appendChild(fill); box.appendChild(bar);
+      box.appendChild(el('h3', null, q.q));
+      var opts = el('div', 'opts');
+      q.a.forEach(function (a) {
+        var b = el('button', 'opt', a); b.type = 'button';
+        b.addEventListener('click', function () { answers[i] = a; i++; draw(); });
+        opts.appendChild(b);
+      });
+      box.appendChild(opts);
+      if (i > 0) {
+        var back = el('button', 'back', '← Назад'); back.type = 'button';
+        back.addEventListener('click', function () { i--; draw(); });
+        box.appendChild(back);
+      }
+    }
+    draw();
+  }
+
+  // Квиз стоимости
+  var QUIZ = [
+    { q: 'В какой сфере вы работаете?', a: ['Торговля', 'Услуги', 'Производство', 'Строительство', 'IT и онлайн', 'Другое'] },
+    { q: 'Какая у вас форма бизнеса?', a: ['ИП', 'ООО', 'Только открываюсь'] },
+    { q: 'Какая система налогообложения?', a: ['УСН (упрощёнка)', 'ОСНО (с НДС)', 'Патент', 'Не знаю'] },
+    { q: 'Сколько документов проходит за месяц?', a: ['До 30', '30–100', '100–300', 'Больше 300'] },
+    { q: 'Сколько сотрудников в компании?', a: ['Нет сотрудников', '1–5', '6–20', 'Больше 20'] }
+  ];
+  runSteps(document.getElementById('quiz-box'), QUIZ, function (box, ans, restart) {
+    var price = ans[1] === 'ООО' ? 15000 : 10000;
+    var big = ans[3] === 'Больше 300' || ans[4] === 'Больше 20';
+    var r = el('div', 'result');
+    r.appendChild(el('div', 'eyebrow', 'Ваш ориентир'));
+    var p = el('div', 'big', 'от ' + rub(price) + ' ');
+    p.appendChild(el('small', null, '/ месяц'));
+    r.appendChild(p);
+    r.appendChild(el('p', null, big
+      ? 'У вас большой объём работы — скорее всего, подойдёт тариф «Под ключ». Точную сумму назовём после бесплатного аудита.'
+      : 'Точную сумму назовём после бесплатного аудита и зафиксируем в договоре.'));
+    var text = 'Здравствуйте! Прошёл расчёт на сайте.\n' + QUIZ.map(function (q, k) { return q.q + ' — ' + ans[k]; }).join('\n') + '\nОриентир: от ' + rub(price) + ' в месяц. Хочу точный расчёт.';
+    var acts = el('div', 'acts');
+    acts.appendChild(link('btn btn-gold', 'Точный расчёт в WhatsApp', WA + encodeURIComponent(text)));
+    acts.appendChild(link('btn btn-line', 'Написать в Telegram', TG + encodeURIComponent(text)));
+    r.appendChild(acts);
+    var again = el('button', 'back', 'Пройти заново'); again.type = 'button'; again.addEventListener('click', restart);
+    r.appendChild(again);
+    box.appendChild(r);
+  });
+
+  // Тест «Проверьте свою бухгалтерию»: risk — ответ, который означает риск
+  var CHECK = [
+    { q: 'Вы знаете, сколько налогов заплатите в этом квартале?', a: ['Да', 'Нет'], risk: 'Нет' },
+    { q: 'За последний год приходили требования или письма из налоговой?', a: ['Да', 'Нет'], risk: 'Да' },
+    { q: 'Были ли штрафы или пени за последний год?', a: ['Да', 'Нет'], risk: 'Да' },
+    { q: 'Вам когда-нибудь блокировали расчётный счёт?', a: ['Да', 'Нет'], risk: 'Да' },
+    { q: 'Если бухгалтер заболеет, его есть кому заменить?', a: ['Да', 'Нет'], risk: 'Нет' },
+    { q: 'Вы каждый месяц получаете понятный отчёт о деньгах бизнеса?', a: ['Да', 'Нет'], risk: 'Нет' }
+  ];
+  runSteps(document.getElementById('check-box'), CHECK, function (box, ans, restart) {
+    var n = CHECK.filter(function (q, k) { return ans[k] === q.risk; }).length;
+    var lvl = n <= 1 ? ['Низкий риск', 'risk-low', 'Учёт выглядит устойчиво. Если хотите убедиться — посмотрим его на бесплатном аудите.']
+            : n <= 3 ? ['Средний риск', 'risk-mid', 'Есть слабые места, которые могут обернуться штрафами. Покажем их на бесплатном аудите.']
+            : ['Высокий риск', 'risk-high', 'В учёте несколько тревожных признаков. Лучше разобраться сейчас, пока это не стало штрафом или блокировкой счёта.'];
+    var r = el('div', 'result');
+    r.appendChild(el('div', 'eyebrow', 'Результат: ' + n + ' из ' + CHECK.length + ' признаков риска'));
+    r.appendChild(el('div', 'big ' + lvl[1], lvl[0]));
+    r.appendChild(el('p', null, lvl[2]));
+    var text = 'Здравствуйте! Прошёл тест на сайте: ' + lvl[0].toLowerCase() + ' (' + n + ' из ' + CHECK.length + '). Хочу бесплатный аудит бухгалтерии.';
+    var acts = el('div', 'acts');
+    acts.appendChild(link('btn btn-gold', 'Записаться на аудит в WhatsApp', WA + encodeURIComponent(text)));
+    acts.appendChild(link('btn btn-line', 'Написать в Telegram', TG + encodeURIComponent(text)));
+    r.appendChild(acts);
+    var again = el('button', 'back', 'Пройти заново'); again.type = 'button'; again.addEventListener('click', restart);
+    r.appendChild(again);
+    box.appendChild(r);
+  });
+
+  // Калькулятор: штатный бухгалтер против обслуживания
+  var salary = document.getElementById('salary');
+  function calc() {
+    var s = +salary.value;
+    var staff = s * 1.30 + s / 12;           // оклад + взносы 30% + отпускные
+    document.getElementById('salary-out').textContent = rub(s);
+    document.getElementById('c-staff').textContent = rub(staff) + ' / мес';
+    document.getElementById('c-save').textContent = 'до ' + rub((staff - 15000) * 12);
+  }
+  salary.addEventListener('input', calc); calc();
+
+  // Вкладки тарифов
+  var tabs = document.querySelectorAll('.tab'), grid = document.getElementById('plan-grid');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t); });
+      var f = t.dataset.tab;
+      grid.querySelectorAll('.plan').forEach(function (c) { c.hidden = f !== 'all' && c.dataset.for && c.dataset.for !== f; });
+      grid.className = 'grid ' + (f === 'all' ? 'g3' : 'g2');
+    });
+  });
+
+  // Плавающая кнопка связи
+  var fabBtn = document.getElementById('fab-btn'), fabMenu = document.getElementById('fab-menu');
+  fabBtn.addEventListener('click', function () {
+    fabMenu.hidden = !fabMenu.hidden;
+    fabBtn.setAttribute('aria-expanded', !fabMenu.hidden);
   });
 </script>
 </body>
