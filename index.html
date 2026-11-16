@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Точка Прибыли — бухгалтерия и налоговый консалтинг для бизнеса</title>
+<meta name="description" content="Консалтинговое агентство «Точка Прибыли»: бухгалтерское обслуживание, зарплата и кадры, юридическая поддержка. За ваш учёт лично отвечают владельцы.">
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  /* Палитра взята с фотографий: кремовые стены, шторы какао, синий пиджак, золотые рамы */
+  :root {
+    --cream: #f6efe4;
+    --cream-2: #efe5d5;
+    --paper: #fffaf2;
+    --cocoa: #6b4f41;
+    --cocoa-soft: #8a6a4f;
+    --navy: #1f2a44;
+    --navy-2: #2b3a5c;
+    --gold: #c9a24b;
+    --gold-dark: #a8843a;
+    --ink: #2a2622;
+    --muted: #6f655b;
+    --line: #e2d5c1;
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: Manrope, 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: var(--navy); line-height: 1.15; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(36px, 5.2vw, 62px); letter-spacing: -0.01em; }
+  h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  h3 { font-size: 22px; }
+  h1 em, h2 em { font-style: italic; font-weight: 500; color: var(--gold-dark); }
+  section { padding: 88px 0; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cocoa-soft); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 18px 0 0; }
+  .head { margin-bottom: 44px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; border-radius: 999px; font: 600 16px var(--sans); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .15s, background .15s, color .15s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: #d6b05b; }
+  .btn-line { border-color: var(--navy); color: var(--navy); background: transparent; }
+  .btn-line:hover { background: var(--navy); color: var(--cream); }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  /* Шапка */
+  header.top { position: sticky; top: 0; z-index: 20; background: rgba(246,239,228,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo svg { width: 44px; height: 44px; flex: none; }
+  .logo b { display: block; font: 600 22px/1.1 var(--serif); color: var(--navy); white-space: nowrap; }
+  .logo span { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--cocoa-soft); margin-top: 4px; white-space: nowrap; }
+  nav.menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
+  nav.menu a { text-decoration: none; color: var(--ink); }
+  nav.menu a:hover { color: var(--gold-dark); }
+  .top .btn { padding: 11px 20px; font-size: 15px; }
+
+  /* Первый экран */
+  .hero { padding: 64px 0 80px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .hero-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .person { position: relative; border-radius: 200px 200px 18px 18px; overflow: hidden; background: var(--cream-2); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(60,40,25,.5); }
+  .person:nth-child(2) { margin-top: 56px; }
+  .person img { width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; }
+  .person .anastasia { object-position: 50% 30%; }
+  .person .vladimir { object-position: 56% 30%; }
+  .person figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; background: rgba(255,250,242,.94); border-radius: 12px; padding: 10px 14px; }
+  .person figcaption b { display: block; font: 600 18px/1.2 var(--serif); color: var(--navy); }
+  .person figcaption span { font-size: 12.5px; color: var(--muted); }
+  figure { margin: 0; }
+
+  /* Цифры */
+  .stats { background: var(--navy); color: var(--cream); padding: 44px 0; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .stat b { display: block; font: 600 46px/1 var(--serif); color: var(--gold); }
+  .stat span { display: block; margin-top: 10px; font-size: 14.5px; color: #d9d2c5; }
+
+  /* Сетки карточек */
+  .grid { display: grid; gap: 20px; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+  .card p { margin: 10px 0 0; color: var(--muted); font-size: 15.5px; }
+  .card ul { margin: 14px 0 0; padding: 0; list-style: none; font-size: 15px; color: var(--muted); }
+  .card li { padding: 6px 0 6px 20px; position: relative; }
+  .card li::before { content: ""; position: absolute; left: 0; top: 15px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .num { font: 500 italic 30px/1 var(--serif); color: var(--gold-dark); margin-bottom: 14px; }
+
+  .pains { background: var(--cream-2); }
+  .pain { border-left: 3px solid var(--gold); padding: 4px 0 4px 20px; }
+  .pain h3 { font-size: 20px; }
+  .pain p { margin: 8px 0 0; color: var(--muted); font-size: 15.5px; }
+
+  /* Тарифы */
+  .plan { display: flex; flex-direction: column; }
+  .plan .for { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa-soft); }
+  .plan h3 { margin-top: 8px; font-size: 26px; }
+  .price { margin: 16px 0 4px; font: 600 30px/1.1 var(--serif); color: var(--navy); }
+  .price small { font: 500 14px var(--sans); color: var(--muted); }
+  .plan ul { flex: 1; }
+  .plan .btn { margin-top: 22px; }
+  .plan.best { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+  .plan.best h3, .plan.best .price { color: var(--cream); }
+  .plan.best .for { color: var(--gold); }
+  .plan.best ul, .plan.best .price small { color: #d9d2c5; }
+  .todo { display: inline-block; font: 600 11px var(--sans); letter-spacing: .06em; text-transform: uppercase; background: #fbe9c4; color: #7a5a12; border-radius: 6px; padding: 3px 8px; vertical-align: middle; }
+
+  /* Как мы работаем */
+  .work { background: var(--navy); color: var(--cream); }
+  .work h2, .work h3 { color: var(--cream); }
+  .work .eyebrow { color: var(--gold); }
+  .work .lead { color: #d9d2c5; }
+  .work .card { background: var(--navy-2); border-color: #3b4a6e; }
+  .work .card p { color: #d9d2c5; }
+  .work .num { color: var(--gold); }
+
+  /* Основатели */
+  .founder { display: grid; grid-template-columns: 220px 1fr; gap: 26px; align-items: center; padding: 22px; }
+  .founder img { width: 220px; height: 270px; object-fit: cover; border-radius: 14px; }
+  .founder .role { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa-soft); }
+  .founder h3 { font-size: 28px; margin-top: 6px; }
+  .founder blockquote { margin: 14px 0 0; font: 500 italic 19px/1.45 var(--serif); color: var(--cocoa); }
+  .roles { margin-top: 20px; }
+  .roles .card { padding: 22px; text-align: center; }
+  .roles b { display: block; font: 600 34px/1 var(--serif); color: var(--gold-dark); }
+  .roles span { display: block; margin-top: 8px; font-size: 14.5px; color: var(--muted); }
+
+  .review { border-style: dashed; color: var(--muted); font-size: 15px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+
+  /* Вопросы */
+  .faq { max-width: 820px; }
+  details { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; list-style: none; padding: 22px 40px 22px 0; position: relative; font: 600 20px/1.3 var(--serif); color: var(--navy); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font: 400 30px/1 var(--sans); color: var(--gold-dark); }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 0 0 22px; color: var(--muted); max-width: 700px; }
+
+  /* Заявка */
+  .lead-box { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  form { display: grid; gap: 14px; }
+  label { font-size: 13.5px; font-weight: 600; color: var(--cocoa); display: grid; gap: 6px; }
+  input, textarea { font: 400 16px var(--sans); color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 12px; padding: 14px 16px; width: 100%; }
+  textarea { resize: vertical; min-height: 96px; }
+  .form-msg { font-size: 14px; color: var(--muted); min-height: 22px; margin: 0; }
+  .checks { list-style: none; padding: 0; margin: 24px 0 0; }
+  .checks li { padding: 8px 0 8px 30px; position: relative; color: var(--muted); }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--gold-dark); font-weight: 700; }
+
+  /* Вакансия */
+  .job { background: var(--cream-2); padding: 56px 0; }
+  .job .wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .job p { margin: 10px 0 0; color: var(--muted); max-width: 620px; }
+
+  footer { background: var(--navy); color: #d9d2c5; padding: 44px 0; font-size: 14.5px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  footer .logo b { color: var(--cream); }
+  footer .logo span { color: var(--gold); }
+  footer .todo { background: #3b4a6e; color: #f3dca6; }
+
+  @media (max-width: 980px) {
+    nav.menu { display: none; }
+    .hero .wrap, .lead-box { grid-template-columns: 1fr; }
+    .g4, .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+    .g3 { grid-template-columns: 1fr; }
+    .g2 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 60px 0; }
+    .hero { padding: 36px 0 56px; }
+    .top .wrap { height: 64px; }
+    .top .btn { display: none; }
+    .logo b { font-size: 19px; }
+    .g4 { grid-template-columns: 1fr; }
+    .stat b { font-size: 38px; }
+    .person:nth-child(2) { margin-top: 28px; }
+    .person figcaption { padding: 8px 10px; }
+    .person figcaption b { font-size: 15px; }
+    .person figcaption span { font-size: 11px; }
+    .founder { grid-template-columns: 1fr; }
+    .founder img { width: 100%; height: 320px; object-position: 50% 25%; }
+    .lead-box { padding: 26px 20px; gap: 28px; }
+    .hero-cta .btn { width: 100%; }
+    .roles.g4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Точка Прибыли — на главную">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#1f2a44"/><polyline points="10,35 19,27 26,31 35.5,16.5" fill="none" stroke="#f6efe4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="15" r="5" fill="#c9a24b"/></svg>
+      <div><b>Точка Прибыли</b><span>Консалтинговое агентство</span></div>
+    </a>
+    <nav class="menu" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#plans">Тарифы</a>
+      <a href="#work">Как работаем</a>
+      <a href="#team">Команда</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-gold" href="#request">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Бухгалтерия · налоги · право</div>
+      <h1>Бухгалтерия, за которую <em>лично отвечают</em> владельцы</h1>
+      <p class="lead">Ведём учёт, зарплату и юридические вопросы малого и среднего бизнеса. Вы занимаетесь делом — мы следим, чтобы каждая цифра и каждый срок были на месте.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#request">Бесплатный аудит бухгалтерии</a>
+        <a class="btn btn-line" href="#plans">Смотреть тарифы</a>
+      </div>
+      <p class="hero-note">Посмотрим ваш учёт и скажем честно, где риски. Без обязательств.</p>
+    </div>
+    <div class="duo">
+      <figure class="person">
+        <img class="anastasia" src="img/anastasia.jpg" alt="Анастасия, директор агентства «Точка Прибыли»">
+        <figcaption><b>Анастасия</b><span>Директор, налоговый консультант</span></figcaption>
+      </figure>
+      <figure class="person">
+        <img class="vladimir" src="img/vladimir.jpg" alt="Владимир, исполнительный директор агентства «Точка Прибыли»">
+        <figcaption><b>Владимир</b><span>Исполнительный директор</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="stats" aria-label="Агентство в цифрах">
+  <div class="wrap">
+    <div class="stat"><b>50</b><span>компаний и ИП на обслуживании</span></div>
+    <div class="stat"><b>42</b><span>клиента работают с нами постоянно, по абонементу</span></div>
+    <div class="stat"><b>8</b><span>специалистов в команде</span></div>
+    <div class="stat"><b>3 в 1</b><span>бухгалтер, кадровик и юрист в одном договоре</span></div>
+  </div>
+</div>
+
+<section class="pains">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Знакомо?</div>
+      <h2>С чем к нам приходят</h2>
+    </div>
+    <div class="grid g3">
+      <div class="pain"><h3>Штрафы и требования из налоговой</h3><p>Отчёт сдан с ошибкой или не сдан вовсе — и об этом вы узнаёте из письма инспекции.</p></div>
+      <div class="pain"><h3>Заблокированный счёт</h3><p>Деньги есть, а платить поставщикам и сотрудникам нельзя, пока не разберётесь с причиной.</p></div>
+      <div class="pain"><h3>Бухгалтер ушёл — и всё встало</h3><p>Отпуск, болезнь или увольнение одного человека останавливают весь учёт компании.</p></div>
+      <div class="pain"><h3>Непонятно, сколько платить налогов</h3><p>Суммы каждый раз неожиданные, а объяснить, откуда они взялись, некому.</p></div>
+      <div class="pain"><h3>Учёт «для галочки»</h3><p>Отчётность сдаётся, но понять по ней, зарабатывает бизнес или теряет, невозможно.</p></div>
+      <div class="pain"><h3>Никто не отвечает на вопросы</h3><p>Нужен простой ответ сегодня, а получаете его через неделю и на языке кодексов.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Услуги</div>
+      <h2>Закрываем учёт <em>целиком</em></h2>
+      <p class="lead">Один договор вместо трёх подрядчиков: бухгалтер, специалист по зарплате и юрист работают в одной команде и знают ваш бизнес.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card"><div class="num">01</div><h3>Бухгалтерский и налоговый учёт</h3><ul><li>Ведение учёта в 1С</li><li>Расчёт налогов и взносов</li><li>Сдача отчётности</li><li>Ответы на требования</li></ul></div>
+      <div class="card"><div class="num">02</div><h3>Зарплата и кадры</h3><ul><li>Расчёт зарплаты и отпускных</li><li>Больничные и увольнения</li><li>Кадровые документы</li><li>Отчётность по сотрудникам</li></ul></div>
+      <div class="card"><div class="num">03</div><h3>Юридическая поддержка</h3><ul><li>Договоры и их проверка</li><li>Изменения в учредительных документах</li><li>Претензии и переписка</li></ul></div>
+      <div class="card"><div class="num">04</div><h3>Налоговые консультации</h3><ul><li>Выбор системы налогообложения</li><li>Разбор сделок до подписания</li><li>Восстановление учёта</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="pains">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Тарифы</div>
+      <h2>Абонентское обслуживание</h2>
+      <p class="lead">Фиксированная сумма в месяц, без доплат «за каждый документ». Точную стоимость считаем после бесплатного аудита.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card plan">
+        <div class="for">Для ИП</div><h3>Старт</h3>
+        <div class="price">от — ₽ <small>/ месяц</small> <span class="todo">цена: уточнить</span></div>
+        <ul><li>Учёт и отчётность ИП</li><li>Расчёт налогов и взносов</li><li>Напоминания о платежах</li><li>Консультации бухгалтера</li></ul>
+        <a class="btn btn-line" href="#request">Рассчитать стоимость</a>
+      </div>
+      <div class="card plan best">
+        <div class="for">Для ООО · выбирают чаще</div><h3>Бизнес</h3>
+        <div class="price">от — ₽ <small>/ месяц</small> <span class="todo">цена: уточнить</span></div>
+        <ul><li>Полный бухгалтерский и налоговый учёт</li><li>Зарплата и кадры</li><li>Личный бухгалтер и контроль директора</li><li>Ответы на требования налоговой</li></ul>
+        <a class="btn btn-gold" href="#request">Рассчитать стоимость</a>
+      </div>
+      <div class="card plan">
+        <div class="for">Для растущих компаний</div><h3>Под ключ</h3>
+        <div class="price">индивидуально <span class="todo">цена: уточнить</span></div>
+        <ul><li>Всё из тарифа «Бизнес»</li><li>Юрист в составе обслуживания</li><li>Налоговое планирование</li><li>Регулярные встречи с директором</li></ul>
+        <a class="btn btn-line" href="#request">Обсудить условия</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Как мы работаем</div>
+      <h2>Система, а не память одного бухгалтера</h2>
+      <p class="lead">Сроки, документы и задачи по каждому клиенту ведутся в единой системе. Если специалист в отпуске — работа не останавливается.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card"><div class="num">1</div><h3>Аудит и приём дел</h3><p>Изучаем ваш учёт, находим риски и составляем план, что и в какой срок приводим в порядок.</p></div>
+      <div class="card"><div class="num">2</div><h3>Личный бухгалтер</h3><p>За вами закрепляется специалист, который знает вашу компанию и отвечает на вопросы.</p></div>
+      <div class="card"><div class="num">3</div><h3>Контроль сроков</h3><p>Каждый отчёт и платёж стоит в календаре системы. Дедлайны контролируются по чек-листам.</p></div>
+      <div class="card"><div class="num">4</div><h3>Двойная проверка</h3><p>Работу бухгалтера дополнительно проверяет директор агентства — до того, как отчёт уйдёт в налоговую.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Команда</div>
+      <h2>Кто отвечает за ваш учёт</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card founder">
+        <img src="img/anastasia.jpg" alt="Анастасия" style="object-position:50% 20%">
+        <div>
+          <div class="role">Директор</div>
+          <h3>Анастасия</h3>
+          <blockquote>«Я проверяю работу каждого бухгалтера и сама консультирую клиентов по налогам».</blockquote>
+          <p>Методология учёта, налоговые консультации, контроль качества.</p>
+        </div>
+      </div>
+      <div class="card founder">
+        <img src="img/vladimir.jpg" alt="Владимир" style="object-position:56% 20%">
+        <div>
+          <div class="role">Исполнительный директор</div>
+          <h3>Владимир</h3>
+          <blockquote>«Моя задача — чтобы ни один срок не был пропущен и всё работало как часы».</blockquote>
+          <p>Контроль сроков отчётности, 1С и интеграции, приём новых клиентов.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid g4 roles">
+      <div class="card"><b>4</b><span>бухгалтера</span></div>
+      <div class="card"><b>1</b><span>бухгалтер по зарплате</span></div>
+      <div class="card"><b>1</b><span>юрист</span></div>
+      <div class="card"><b>2</b><span>руководителя на контроле</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pains">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Отзывы</div>
+      <h2>Что говорят клиенты</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card review"><span class="todo">место для отзыва</span>Здесь будет настоящий отзыв клиента: имя, компания, сфера бизнеса.</div>
+      <div class="card review"><span class="todo">место для отзыва</span>Здесь будет настоящий отзыв клиента: имя, компания, сфера бизнеса.</div>
+      <div class="card review"><span class="todo">место для отзыва</span>Здесь будет настоящий отзыв клиента: имя, компания, сфера бизнеса.</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <div class="head">
+      <div class="eyebrow">Частые вопросы</div>
+      <h2>Коротко о главном</h2>
+    </div>
+    <details open><summary>Как перейти к вам от другого бухгалтера?</summary><p>Мы сами принимаем дела: запрашиваем базу 1С и документы, проверяем учёт и составляем список того, что нужно исправить. От вас — доступы и контакт прежнего бухгалтера.</p></details>
+    <details><summary>Что будет, если мой бухгалтер заболеет или уйдёт в отпуск?</summary><p>Задачи и сроки по вашей компании ведутся в общей системе, а не в голове одного человека. Работу подхватывает другой специалист команды, сроки контролирует руководитель.</p></details>
+    <details><summary>Из чего складывается стоимость?</summary><p>Из системы налогообложения, количества операций и числа сотрудников. Сумму фиксируем в договоре после бесплатного аудита.</p></details>
+    <details><summary>Вы работаете удалённо?</summary><p>Да. Документы принимаем в электронном виде, отчётность сдаём через интернет. Встретиться лично тоже можно.</p></details>
+    <details><summary>С кем я буду общаться?</summary><p>С закреплённым за вами бухгалтером. По сложным налоговым вопросам подключается директор агентства Анастасия.</p></details>
+  </div>
+</section>
+
+<section id="request" style="padding-top:0">
+  <div class="wrap">
+    <div class="lead-box">
+      <div>
+        <div class="eyebrow">Заявка</div>
+        <h2>Бесплатный аудит вашей бухгалтерии</h2>
+        <ul class="checks">
+          <li>Посмотрим учёт и отчётность</li>
+          <li>Покажем риски и ошибки, если они есть</li>
+          <li>Назовём точную стоимость обслуживания</li>
+        </ul>
+      </div>
+      <form id="lead-form" novalidate>
+        <label>Как вас зовут<input name="name" autocomplete="name" required></label>
+        <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7" required></label>
+        <label>Коротко о бизнесе (необязательно)<textarea name="about" placeholder="Например: ООО на упрощёнке, 5 сотрудников"></textarea></label>
+        <button class="btn btn-gold" type="submit">Отправить заявку</button>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="job">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Вакансия</div>
+      <h2>Ищем главного бухгалтера</h2>
+      <p>Растём и приглашаем в команду опытного главного бухгалтера. Расскажите о себе — свяжемся с вами.</p>
+    </div>
+    <a class="btn btn-line" href="#request">Откликнуться</a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#2b3a5c"/><polyline points="10,35 19,27 26,31 35.5,16.5" fill="none" stroke="#f6efe4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="15" r="5" fill="#c9a24b"/></svg>
+      <div><b>Точка Прибыли</b><span>Консалтинговое агентство</span></div>
+    </a>
+    <div>Телефон, почта, адрес <span class="todo">уточнить</span></div>
+    <div>© 2026 «Точка Прибыли»</div>
+  </div>
+</footer>
+
+<script>
+  // Прототип: заявка никуда не отправляется, только показываем сообщение
+  document.getElementById('lead-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('form-msg');
+    if (!this.name.value.trim() || !this.phone.value.trim()) {
+      msg.textContent = 'Укажите имя и телефон, чтобы мы могли связаться.';
+      return;
+    }
+    msg.textContent = 'Это прототип: отправка заявок пока не подключена.';
+  });
+</script>
+</body>
+</html>

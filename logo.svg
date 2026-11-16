@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 64" role="img" aria-label="Точка Прибыли — консалтинговое агентство">
+  <rect x="0" y="8" width="48" height="48" rx="11" fill="#1f2a44"/>
+  <polyline points="10,43 19,35 26,39 35.5,24.5" fill="none" stroke="#f6efe4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="23" r="5" fill="#c9a24b"/>
+  <text x="62" y="35" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="27" font-weight="600" fill="#1f2a44">Точка Прибыли</text>
+  <text x="63" y="53" font-family="Manrope, 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="2.6" fill="#8a6a4f">КОНСАЛТИНГОВОЕ АГЕНТСТВО</text>
+</svg>
