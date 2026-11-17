@@ -79,10 +79,8 @@
   .hero-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
   .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .person { position: relative; border-radius: 18px; overflow: hidden; background: var(--cream-2); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(60,40,25,.5); }
-  .person:nth-child(2) { margin-top: 56px; }
   .person img { width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; }
-  .person .anastasia { object-position: 50% 30%; }
-  .person .vladimir { object-position: 56% 30%; }
+  .person img { object-position: 50% 20%; }
   .person figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; background: rgba(255,250,242,.94); border-radius: 12px; padding: 10px 14px; }
   .person figcaption b { display: block; font: 600 18px/1.2 var(--serif); color: var(--navy); }
   .person figcaption span { font-size: 12.5px; color: var(--muted); }
@@ -276,7 +274,6 @@
     .logo b { font-size: 19px; }
     .g4 { grid-template-columns: 1fr; }
     .stat b { font-size: 38px; }
-    .person:nth-child(2) { margin-top: 28px; }
     .person figcaption { padding: 8px 10px; }
     .person figcaption b { font-size: 15px; }
     .person figcaption span { font-size: 11px; }
@@ -325,10 +322,10 @@
       <h1>Бухгалтерские услуги <em>для предпринимателей</em></h1>
       <p class="lead">Мы берём на себя учёт, зарплату и налоговые вопросы, чтобы вы были уверены: ни один срок и ни одна цифра не будут упущены.</p>
       <div class="hero-cta">
-        <a class="btn btn-gold" href="#request">Бесплатный аудит бухгалтерии</a>
+        <a class="btn btn-gold" href="#quiz">Рассчитать стоимость</a>
         <a class="btn btn-line" href="#plans">Смотреть тарифы</a>
       </div>
-      <p class="hero-note">Посмотрим ваш учёт и скажем честно, где риски. Без обязательств.</p>
+      <p class="hero-note">Шесть коротких вопросов — и вы увидите цену для вашего бизнеса.</p>
     </div>
     <div class="duo">
       <figure class="person">
@@ -336,7 +333,7 @@
         <figcaption><b>Анастасия</b><span>Директор, налоговый консультант</span></figcaption>
       </figure>
       <figure class="person">
-        <img class="vladimir" src="img/vladimir.jpg" alt="Владимир, исполнительный директор агентства «Точка Прибыли»">
+        <img class="vladimir" src="img/vladimir-portrait.jpg" alt="Владимир, исполнительный директор агентства «Точка Прибыли»">
         <figcaption><b>Владимир</b><span>Исполнительный директор</span></figcaption>
       </figure>
     </div>
@@ -438,7 +435,7 @@
     <div class="head">
       <div class="eyebrow">Тарифы</div>
       <h2>Абонентское обслуживание</h2>
-      <p class="lead">Фиксированная сумма в месяц, без доплат «за каждый документ». Точную стоимость считаем после бесплатного аудита.</p>
+      <p class="lead">Фиксированная сумма в месяц, без доплат «за каждый документ». Точную стоимость называем после знакомства с вашим учётом.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Для кого тариф">
       <button class="tab" role="tab" aria-selected="true" data-tab="all">Все тарифы</button>
@@ -487,7 +484,7 @@
       <p class="lead">Сроки, документы и задачи по каждому клиенту ведутся в единой системе. Если специалист в отпуске — работа не останавливается.</p>
     </div>
     <div class="grid g4">
-      <div class="card"><div class="num">1</div><h3>Аудит и приём дел</h3><p>Изучаем ваш учёт, находим риски и составляем план, что и в какой срок приводим в порядок.</p></div>
+      <div class="card"><div class="num">1</div><h3>Знакомство и приём дел</h3><p>Изучаем ваш учёт, находим риски и составляем план, что и в какой срок приводим в порядок.</p></div>
       <div class="card"><div class="num">2</div><h3>Личный бухгалтер</h3><p>За вами закрепляется специалист, который знает вашу компанию и отвечает на вопросы.</p></div>
       <div class="card"><div class="num">3</div><h3>Контроль сроков</h3><p>Каждый отчёт и платёж стоит в календаре системы. Дедлайны контролируются по чек-листам.</p></div>
       <div class="card"><div class="num">4</div><h3>Двойная проверка</h3><p>Работу бухгалтера дополнительно проверяет главный бухгалтер консалтинга — до того, как отчёт уйдёт в налоговую.</p></div>
@@ -528,7 +525,7 @@
         </div>
       </div>
       <div class="card founder">
-        <img src="img/vladimir.jpg" alt="Владимир" style="object-position:56% 20%">
+        <img src="img/vladimir-portrait.jpg" alt="Владимир" style="object-position:50% 20%">
         <div>
           <div class="role">Исполнительный директор</div>
           <h3>Владимир</h3>
@@ -568,7 +565,7 @@
     </div>
     <details open><summary>Как перейти к вам от другого бухгалтера?</summary><p>Мы сами принимаем дела: запрашиваем базу 1С и документы, проверяем учёт и составляем список того, что нужно исправить. От вас — доступы и контакт прежнего бухгалтера.</p></details>
     <details><summary>Что будет, если мой бухгалтер заболеет или уйдёт в отпуск?</summary><p>Задачи и сроки по вашей компании ведутся в общей системе, а не в голове одного человека. Работу подхватывает другой специалист команды, сроки контролирует руководитель.</p></details>
-    <details><summary>Из чего складывается стоимость?</summary><p>Из системы налогообложения, количества операций и числа сотрудников. Сумму фиксируем в договоре после бесплатного аудита.</p></details>
+    <details><summary>Из чего складывается стоимость?</summary><p>Из системы налогообложения, количества операций и числа сотрудников. Сумму фиксируем в договоре после знакомства с вашим учётом.</p></details>
     <details><summary>Вы работаете удалённо?</summary><p>Да, ведём ИП и ООО по всей России полностью онлайн. Документы принимаем в электронном виде, отчётность сдаём через интернет.</p></details>
     <details><summary>С кем я буду общаться?</summary><p>С закреплённым за вами бухгалтером. По сложным налоговым вопросам подключается директор агентства Анастасия.</p></details>
   </div>
@@ -590,14 +587,15 @@
     <div class="lead-box">
       <div>
         <div class="eyebrow">Заявка</div>
-        <h2>Бесплатный аудит вашей бухгалтерии</h2>
+        <h2>Оставьте заявку — мы свяжемся с вами</h2>
         <ul class="checks">
-          <li>Посмотрим учёт и отчётность</li>
-          <li>Покажем риски и ошибки, если они есть</li>
+          <li>Ответим на вопросы об учёте и налогах</li>
+          <li>Расскажем, как проходит переход к нам</li>
           <li>Назовём точную стоимость обслуживания</li>
         </ul>
         <div class="direct">Или свяжитесь с нами напрямую:
           <a class="tel" href="tel:+79157770609">+7 (915) 777-06-09</a>
+          <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
           <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
           <a href="mailto:zm-buhy4et@yandex.ru">zm-buhy4et@yandex.ru</a>
@@ -630,6 +628,7 @@
 
 <div class="fab">
   <div class="fab-menu" id="fab-menu" hidden>
+    <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
     <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
     <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
     <a href="tel:+79157770609">Позвонить</a>
@@ -650,6 +649,7 @@
       <a href="mailto:zm-buhy4et@yandex.ru">zm-buhy4et@yandex.ru</a>
     </div>
     <div class="cols">
+      <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
       <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
     </div>
@@ -664,6 +664,19 @@
 <script>
   var WA = 'https://wa.me/79157770609?text=';
   var TG = 'https://t.me/anastasiial2018?text=';
+  var MAX = 'https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo';
+  // Макс не умеет подставлять текст в чат: копируем его, человек вставит сам
+  function maxBtn(text, wrap, label) {
+    var a = link('btn btn-gold', label, MAX);
+    var note = el('p', 'hint');
+    a.addEventListener('click', function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () {
+        note.textContent = 'Текст скопирован — вставьте его в чат Макса.';
+      }, function () {});
+    });
+    wrap.appendChild(a);
+    return note;
+  }
   function rub(n) { return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function link(cls, text, href) { var a = el('a', cls, text); a.href = href; a.target = '_blank'; a.rel = 'noopener'; return a; }
@@ -680,7 +693,7 @@
       msg.textContent = 'Отметьте согласие на обработку данных.';
       return;
     }
-    var text = 'Здравствуйте! Хочу бесплатный аудит бухгалтерии.\nИмя: ' + this.name.value.trim() + '\nТелефон: ' + this.phone.value.trim();
+    var text = 'Здравствуйте! Хочу обсудить бухгалтерское обслуживание.\nИмя: ' + this.name.value.trim() + '\nТелефон: ' + this.phone.value.trim();
     if (this.about.value.trim()) text += '\nО бизнесе: ' + this.about.value.trim();
     msg.textContent = 'Открываем WhatsApp — нажмите «Отправить» в чате.';
     window.open(WA + encodeURIComponent(text), '_blank', 'noopener');
@@ -774,15 +787,17 @@
       });
       r.appendChild(ul);
     }
-    r.appendChild(el('p', null, (extras.length ? 'Особенности бизнеса (' + extras.join('; ') + ') учтём при точном расчёте. ' : '') + 'Точную сумму назовём после бесплатного аудита и зафиксируем в договоре.'));
+    r.appendChild(el('p', null, (extras.length ? 'Особенности бизнеса (' + extras.join('; ') + ') учтём при точном расчёте. ' : '') + 'Точную сумму назовём после знакомства с вашим учётом и зафиксируем в договоре.'));
     var text = 'Здравствуйте! Прошёл расчёт на сайте.\n' + QUIZ.map(function (x, k) {
       var v = x.multi ? (ans[k].length ? ans[k].join(', ') : 'нет') : ans[k];
       return x.q + ' — ' + v;
     }).join('\n') + '\nПредварительный расчёт: ' + q.label + ' в месяц. Хочу точный расчёт.';
     var acts = el('div', 'acts');
-    acts.appendChild(link('btn btn-gold', 'Точный расчёт в WhatsApp', WA + encodeURIComponent(text)));
+    var maxNote = maxBtn(text, acts, 'Точный расчёт в Макс');
+    acts.appendChild(link('btn btn-line', 'Написать в WhatsApp', WA + encodeURIComponent(text)));
     acts.appendChild(link('btn btn-line', 'Написать в Telegram', TG + encodeURIComponent(text)));
     r.appendChild(acts);
+    r.appendChild(maxNote);
     var again = el('button', 'back', 'Пройти заново'); again.type = 'button'; again.addEventListener('click', restart);
     r.appendChild(again);
     box.appendChild(r);
@@ -803,18 +818,20 @@
   ];
   runSteps(document.getElementById('check-box'), CHECK, function (box, ans, restart) {
     var n = CHECK.filter(function (q, k) { return ans[k] === q.risk; }).length;
-    var lvl = n <= 1 ? ['Низкий риск', 'risk-low', 'Учёт выглядит устойчиво. Если хотите убедиться — посмотрим его на бесплатном аудите.']
-            : n <= 3 ? ['Средний риск', 'risk-mid', 'Есть слабые места, которые могут обернуться штрафами. Покажем их на бесплатном аудите.']
+    var lvl = n <= 1 ? ['Низкий риск', 'risk-low', 'Учёт выглядит устойчиво. Если хотите убедиться — обсудите его с нашим бухгалтером.']
+            : n <= 3 ? ['Средний риск', 'risk-mid', 'Есть слабые места, которые могут обернуться штрафами. Разберём их вместе с нашим бухгалтером.']
             : ['Высокий риск', 'risk-high', 'В учёте несколько тревожных признаков. Лучше разобраться сейчас, пока это не стало штрафом или блокировкой счёта.'];
     var r = el('div', 'result');
     r.appendChild(el('div', 'eyebrow', 'Результат: ' + n + ' из ' + CHECK.length + ' признаков риска'));
     r.appendChild(el('div', 'big ' + lvl[1], lvl[0]));
     r.appendChild(el('p', null, lvl[2]));
-    var text = 'Здравствуйте! Прошёл тест на сайте: ' + lvl[0].toLowerCase() + ' (' + n + ' из ' + CHECK.length + '). Хочу бесплатный аудит бухгалтерии.';
+    var text = 'Здравствуйте! Прошёл тест на сайте: ' + lvl[0].toLowerCase() + ' (' + n + ' из ' + CHECK.length + '). Хочу обсудить это с бухгалтером.';
     var acts = el('div', 'acts');
-    acts.appendChild(link('btn btn-gold', 'Записаться на аудит в WhatsApp', WA + encodeURIComponent(text)));
+    var maxNote = maxBtn(text, acts, 'Обсудить в Макс');
+    acts.appendChild(link('btn btn-line', 'Написать в WhatsApp', WA + encodeURIComponent(text)));
     acts.appendChild(link('btn btn-line', 'Написать в Telegram', TG + encodeURIComponent(text)));
     r.appendChild(acts);
+    r.appendChild(maxNote);
     var again = el('button', 'back', 'Пройти заново'); again.type = 'button'; again.addEventListener('click', restart);
     r.appendChild(again);
     box.appendChild(r);
