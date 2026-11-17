@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Точка Прибыли — бухгалтерия и налоговый консалтинг для бизнеса</title>
 <meta name="description" content="Консалтинговое агентство «Точка Прибыли»: бухгалтерское обслуживание, зарплата и кадры, юридическая поддержка. За ваш учёт лично отвечают владельцы.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ravestyle.online/">
+<meta property="og:title" content="Точка Прибыли — бухгалтерские услуги для предпринимателей">
+<meta property="og:description" content="Учёт, зарплата и налоги для ИП и ООО по всей России. Рассчитайте стоимость за 1 минуту.">
+<meta property="og:image" content="https://ravestyle.online/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +181,18 @@
   .opt { font: 600 16px var(--sans); color: var(--navy); background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; text-align: left; cursor: pointer; transition: border-color .15s, background .15s, transform .15s; }
   .opt:hover { border-color: var(--gold); background: #fffdf8; transform: translateY(-1px); }
   .opt:focus-visible, .tab:focus-visible, .back:focus-visible, .fab-btn:focus-visible, input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .live { font-size: 14px; font-weight: 600; color: var(--cocoa-soft); }
+  .live b { font: 600 20px var(--serif); color: var(--navy); margin-left: 6px; white-space: nowrap; }
+  .opt.on { border-color: var(--gold-dark); background: #fbf1da; }
+  .opt.on::before { content: "✓ "; color: var(--gold-dark); }
+  .hint { margin: 8px 0 0; font-size: 14.5px; color: var(--muted); }
+  .next { margin-top: 22px; margin-right: 18px; }
+  .breakdown { list-style: none; margin: 18px 0 0; padding: 0; max-width: 460px; font-size: 15.5px; color: var(--muted); }
+  .breakdown li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .breakdown b { color: var(--navy); white-space: nowrap; }
+  .consent { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; font-size: 13.5px; color: var(--muted); }
+  .consent input { width: 18px; height: 18px; flex: none; margin: 2px 0 0; padding: 0; accent-color: var(--gold-dark); }
+  .consent a { color: var(--navy); }
   .back { margin-top: 22px; background: none; border: 0; padding: 6px 0; font: 600 14.5px var(--sans); color: var(--cocoa-soft); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
   .result .big { font: 600 clamp(34px, 5vw, 48px)/1.1 var(--serif); color: var(--navy); margin: 10px 0 6px; }
   .result .big small { font: 500 16px var(--sans); color: var(--muted); }
@@ -453,7 +473,7 @@
     <div class="head">
       <div class="eyebrow">Расчёт за 1 минуту</div>
       <h2>Узнайте стоимость <em>для вашего бизнеса</em></h2>
-      <p class="lead">Пять коротких вопросов — и вы увидите ориентир по цене.</p>
+      <p class="lead">Шесть коротких вопросов. Цена меняется с каждым ответом.</p>
     </div>
     <div class="box" id="quiz-box" aria-live="polite"></div>
   </div>
@@ -526,7 +546,7 @@
   </div>
 </section>
 
-<section class="pains">
+<section class="pains" id="reviews" hidden>
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Отзывы</div>
@@ -587,6 +607,7 @@
         <label>Как вас зовут<input name="name" autocomplete="name" required></label>
         <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7" required></label>
         <label>Коротко о бизнесе (необязательно)<textarea name="about" placeholder="Например: ООО на упрощёнке, 5 сотрудников"></textarea></label>
+        <label class="consent"><input type="checkbox" name="agree" required><span>Согласен на обработку персональных данных по <a href="privacy.html" target="_blank">политике конфиденциальности</a></span></label>
         <button class="btn btn-gold" type="submit">Отправить в WhatsApp</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>
@@ -635,7 +656,7 @@
     <div>Работаем по всей России онлайн</div>
     <div class="legal">
       <span>© 2026 «Точка Прибыли» · ИП Лещёва Анастасия Сергеевна · ИНН 330708769746</span>
-      <a href="https://tochka-pribili.ru/privacy/" target="_blank" rel="noopener">Политика конфиденциальности</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
     </div>
   </div>
 </footer>
@@ -655,14 +676,18 @@
       msg.textContent = 'Укажите имя и телефон, чтобы мы могли связаться.';
       return;
     }
+    if (!this.agree.checked) {
+      msg.textContent = 'Отметьте согласие на обработку данных.';
+      return;
+    }
     var text = 'Здравствуйте! Хочу бесплатный аудит бухгалтерии.\nИмя: ' + this.name.value.trim() + '\nТелефон: ' + this.phone.value.trim();
     if (this.about.value.trim()) text += '\nО бизнесе: ' + this.about.value.trim();
     msg.textContent = 'Открываем WhatsApp — нажмите «Отправить» в чате.';
     window.open(WA + encodeURIComponent(text), '_blank', 'noopener');
   });
 
-  // Общий движок для квиза и теста
-  function runSteps(box, questions, showResult) {
+  // Общий движок для квиза и теста. live(answers) — подпись справа от счётчика шагов
+  function runSteps(box, questions, showResult, live) {
     var answers = [], i = 0;
     function draw() {
       box.textContent = '';
@@ -670,18 +695,36 @@
       var q = questions[i];
       var top = el('div', 'steps');
       top.appendChild(el('span', null, 'Вопрос ' + (i + 1) + ' из ' + questions.length));
+      if (live) top.appendChild(live(answers.slice(0, i)));
       box.appendChild(top);
       var bar = el('div', 'bar'), fill = el('i');
       fill.style.width = (i / questions.length * 100) + '%';
       bar.appendChild(fill); box.appendChild(bar);
       box.appendChild(el('h3', null, q.q));
+      if (q.multi) box.appendChild(el('p', 'hint', 'Можно выбрать несколько вариантов или ничего.'));
       var opts = el('div', 'opts');
+      var picked = q.multi ? (answers[i] || []).slice() : null;
       q.a.forEach(function (a) {
         var b = el('button', 'opt', a); b.type = 'button';
-        b.addEventListener('click', function () { answers[i] = a; i++; draw(); });
+        if (q.multi) {
+          b.setAttribute('aria-pressed', picked.indexOf(a) >= 0);
+          if (picked.indexOf(a) >= 0) b.classList.add('on');
+          b.addEventListener('click', function () {
+            var k = picked.indexOf(a);
+            if (k >= 0) picked.splice(k, 1); else picked.push(a);
+            b.classList.toggle('on', k < 0); b.setAttribute('aria-pressed', k < 0);
+          });
+        } else {
+          b.addEventListener('click', function () { answers[i] = a; i++; draw(); });
+        }
         opts.appendChild(b);
       });
       box.appendChild(opts);
+      if (q.multi) {
+        var next = el('button', 'btn btn-gold next', 'Показать расчёт'); next.type = 'button';
+        next.addEventListener('click', function () { answers[i] = picked; i++; draw(); });
+        box.appendChild(next);
+      }
       if (i > 0) {
         var back = el('button', 'back', '← Назад'); back.type = 'button';
         back.addEventListener('click', function () { i--; draw(); });
@@ -691,26 +734,51 @@
     draw();
   }
 
-  // Квиз стоимости
+  // Квиз стоимости. Базовые цены — от агентства, надбавки — предварительные, по рыночным прайсам
   var QUIZ = [
     { q: 'В какой сфере вы работаете?', a: ['Торговля', 'Услуги', 'Производство', 'Строительство', 'IT и онлайн', 'Другое'] },
     { q: 'Какая у вас форма бизнеса?', a: ['ИП', 'ООО', 'Только открываюсь'] },
     { q: 'Какая система налогообложения?', a: ['УСН (упрощёнка)', 'ОСНО (с НДС)', 'Патент', 'Не знаю'] },
     { q: 'Сколько документов проходит за месяц?', a: ['До 30', '30–100', '100–300', 'Больше 300'] },
-    { q: 'Сколько сотрудников в компании?', a: ['Нет сотрудников', '1–5', '6–20', 'Больше 20'] }
+    { q: 'Сколько сотрудников в компании?', a: ['Нет сотрудников', '1–5', '6–20', 'Больше 20'] },
+    { q: 'Что ещё есть в вашем бизнесе?', multi: true, a: ['Маркетплейсы (Wildberries, Ozon)', 'Маркировка «Честный знак»', 'Импорт или экспорт', 'Несколько юрлиц или ИП'] }
   ];
+  var ADD = { 'ОСНО (с НДС)': 5000, '30–100': 4000, '100–300': 10000, '1–5': 3000, '6–20': 10000 };
+  var NAMES = { 'ОСНО (с НДС)': 'Учёт с НДС', '30–100': '30–100 документов', '100–300': '100–300 документов', '1–5': 'Зарплата: 1–5 сотрудников', '6–20': 'Зарплата: 6–20 сотрудников' };
+  function quote(ans) {
+    var rows = [], total = 0, big = false;
+    if (ans[1]) {
+      total = ans[1] === 'ООО' ? 15000 : 10000;
+      rows.push([ans[1] === 'ООО' ? 'Базовый тариф для ООО' : 'Базовый тариф для ИП', total]);
+    }
+    [ans[2], ans[3], ans[4]].forEach(function (a) {
+      if (ADD[a]) { total += ADD[a]; rows.push([NAMES[a], ADD[a]]); }
+      if (a === 'Больше 300' || a === 'Больше 20') big = true;
+    });
+    return { rows: rows, total: total, big: big, label: big ? 'от 40 000 ₽' : (ans[1] ? rub(total) : 'от 10 000 ₽') };
+  }
   runSteps(document.getElementById('quiz-box'), QUIZ, function (box, ans, restart) {
-    var price = ans[1] === 'ООО' ? 15000 : 10000;
-    var big = ans[3] === 'Больше 300' || ans[4] === 'Больше 20';
+    var q = quote(ans), extras = ans[5] || [];
     var r = el('div', 'result');
-    r.appendChild(el('div', 'eyebrow', 'Ваш ориентир'));
-    var p = el('div', 'big', 'от ' + rub(price) + ' ');
+    r.appendChild(el('div', 'eyebrow', 'Предварительный расчёт'));
+    var p = el('div', 'big', q.label + ' ');
     p.appendChild(el('small', null, '/ месяц'));
     r.appendChild(p);
-    r.appendChild(el('p', null, big
-      ? 'У вас большой объём работы — скорее всего, подойдёт тариф «Под ключ». Точную сумму назовём после бесплатного аудита.'
-      : 'Точную сумму назовём после бесплатного аудита и зафиксируем в договоре.'));
-    var text = 'Здравствуйте! Прошёл расчёт на сайте.\n' + QUIZ.map(function (q, k) { return q.q + ' — ' + ans[k]; }).join('\n') + '\nОриентир: от ' + rub(price) + ' в месяц. Хочу точный расчёт.';
+    if (q.big) {
+      r.appendChild(el('p', null, 'У вас большой объём работы — такие проекты считаем индивидуально, по тарифу «Под ключ».'));
+    } else {
+      var ul = el('ul', 'breakdown');
+      q.rows.forEach(function (row, k) {
+        var li = el('li'); li.appendChild(el('span', null, row[0]));
+        li.appendChild(el('b', null, (k ? '+ ' : '') + rub(row[1]))); ul.appendChild(li);
+      });
+      r.appendChild(ul);
+    }
+    r.appendChild(el('p', null, (extras.length ? 'Особенности бизнеса (' + extras.join('; ') + ') учтём при точном расчёте. ' : '') + 'Точную сумму назовём после бесплатного аудита и зафиксируем в договоре.'));
+    var text = 'Здравствуйте! Прошёл расчёт на сайте.\n' + QUIZ.map(function (x, k) {
+      var v = x.multi ? (ans[k].length ? ans[k].join(', ') : 'нет') : ans[k];
+      return x.q + ' — ' + v;
+    }).join('\n') + '\nПредварительный расчёт: ' + q.label + ' в месяц. Хочу точный расчёт.';
     var acts = el('div', 'acts');
     acts.appendChild(link('btn btn-gold', 'Точный расчёт в WhatsApp', WA + encodeURIComponent(text)));
     acts.appendChild(link('btn btn-line', 'Написать в Telegram', TG + encodeURIComponent(text)));
@@ -718,6 +786,10 @@
     var again = el('button', 'back', 'Пройти заново'); again.type = 'button'; again.addEventListener('click', restart);
     r.appendChild(again);
     box.appendChild(r);
+  }, function (ans) {
+    var d = el('span', 'live', 'Сейчас:');
+    d.appendChild(el('b', null, quote(ans).label + ' / мес'));
+    return d;
   });
 
   // Тест «Проверьте свою бухгалтерию»: risk — ответ, который означает риск
