@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Точка Прибыли — бухгалтерия и налоговый консалтинг для бизнеса</title>
+<title>Точка Прибыли: бухгалтерия и налоговый консалтинг для бизнеса</title>
 <meta name="description" content="Консалтинговое агентство «Точка Прибыли»: бухгалтерское обслуживание, зарплата и кадры, юридическая поддержка. За ваш учёт лично отвечают владельцы.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ravestyle.online/">
@@ -18,6 +18,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
+  /* Hallmark · v2.0.0 · audit → polish · genre: editorial · theme: own (warm photo palette, by request) · copy: verbatim (Russian copy: the dash is standard punctuation, the client approved the text) */
+  /* Hallmark · pre-emit critique: P4 H4 E4 S3 R4 V4 · weakest: S, the page leans on cards; kept the layout the client approved and removed the generated tells instead */
+  /* Hallmark · answered F15 · the accountancy page keeps its card gap of 20px; 28, 36 and 48 sit inside the stats band, the calculator and the request card */
+  /* Hallmark · dismissed F4 · checked the accountancy hero: the second action Смотреть тарифы is btn-line, outlined with a transparent background */
+  /* Hallmark · waive 24b · spacing kept from the client-approved layout of the accountancy page · polish depth keeps the layout, a respacing is a restyle */
   /* Палитра взята с фотографий: кремовые стены, шторы какао, синий пиджак, золотые рамы */
   :root {
     --cream: #f6efe4;
@@ -32,41 +37,57 @@
     --ink: #2a2622;
     --muted: #6f655b;
     --line: #e2d5c1;
+    --field: #fffdf8;
+    --gold-light: #d6b05b;
+    --gold-wash: #fbf1da;
+    --on-navy: #d9d2c5;
+    --on-navy-soft: #a9a497;
+    --on-navy-accent: #f3dca6;
+    --navy-line: #3b4a6e;
+    --bullet-soft: #c9bba6;
+    --todo-bg: #fbe9c4;
+    --todo-ink: #7a5a12;
+    --ok: #3f7a4f;
+    --bad: #a8432f;
+    --veil: rgba(255,250,242,.94);
+    --shadow-warm: rgba(60,40,25,.5);
+    --shadow-navy: rgba(31,42,68,.6);
     --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
     --sans: Manrope, 'Helvetica Neue', Arial, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  ::selection { background: var(--gold-wash); color: var(--navy); }
+  body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; caret-color: var(--gold-dark); }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
   .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: var(--navy); line-height: 1.15; margin: 0; text-wrap: balance; }
-  h1 { font-size: clamp(36px, 5.2vw, 62px); letter-spacing: -0.01em; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: var(--navy); line-height: 1.15; margin: 0; text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+  h1 { font-size: clamp(34px, 4.4vw, 54px); letter-spacing: -0.01em; }
   h2 { font-size: clamp(28px, 3.6vw, 42px); }
   h3 { font-size: 22px; }
-  h1 em, h2 em { font-style: italic; font-weight: 500; color: var(--gold-dark); }
   section { padding: 88px 0; }
-  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cocoa-soft); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .label { font-size: 15px; font-weight: 600; color: var(--cocoa-soft); margin-bottom: 6px; }
   .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 18px 0 0; }
   .head { margin-bottom: 44px; }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; border-radius: 999px; font: 600 16px var(--sans); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .15s, background .15s, color .15s; }
   .btn:hover { transform: translateY(-1px); }
+  .btn:disabled, .opt:disabled, input:disabled, textarea:disabled { opacity: .5; cursor: not-allowed; }
+  .btn:active, .opt:active, .tab:active, .fab-btn:active { transform: scale(.98); }
   .btn-gold { background: var(--gold); color: var(--navy); }
-  .btn-gold:hover { background: #d6b05b; }
+  .btn-gold:hover { background: var(--gold-light); }
   .btn-line { border-color: var(--navy); color: var(--navy); background: transparent; }
   .btn-line:hover { background: var(--navy); color: var(--cream); }
   .btn:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
   /* Шапка */
-  header.top { position: sticky; top: 0; z-index: 20; background: rgba(246,239,228,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header.top { position: sticky; top: 0; z-index: 20; background: var(--cream); border-bottom: 1px solid var(--line); }
   .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
   .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .logo svg { width: 44px; height: 44px; flex: none; }
   .logo b { display: block; font: 600 22px/1.1 var(--serif); color: var(--navy); white-space: nowrap; }
-  .logo span { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--cocoa-soft); margin-top: 4px; white-space: nowrap; }
+  .logo span { display: block; font-size: 13px; font-weight: 500; color: var(--cocoa-soft); margin-top: 4px; white-space: nowrap; }
   nav.menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
   nav.menu a { text-decoration: none; color: var(--ink); }
   nav.menu a:hover { color: var(--gold-dark); }
@@ -74,29 +95,29 @@
 
   /* Первый экран */
   .hero { padding: 64px 0 80px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
   .hero-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
-  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .person { position: relative; border-radius: 18px; overflow: hidden; background: var(--cream-2); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(60,40,25,.5); }
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .person { position: relative; border-radius: 18px; overflow: hidden; background: var(--cream-2); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px var(--shadow-warm); }
   .person img { width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; }
   .person img { object-position: 50% 20%; }
-  .person figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; background: rgba(255,250,242,.94); border-radius: 12px; padding: 10px 14px; }
+  .person figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; background: var(--veil); border-radius: 12px; padding: 10px 14px; }
   .person figcaption b { display: block; font: 600 18px/1.2 var(--serif); color: var(--navy); }
   .person figcaption span { font-size: 12.5px; color: var(--muted); }
   figure { margin: 0; }
 
   /* Цифры */
   .stats { background: var(--navy); color: var(--cream); padding: 44px 0; }
-  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-  .stat b { display: block; font: 600 46px/1 var(--serif); color: var(--gold); }
-  .stat span { display: block; margin-top: 10px; font-size: 14.5px; color: #d9d2c5; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  .stat b { display: block; font: 600 46px/1 var(--serif); color: var(--gold); font-variant-numeric: tabular-nums; }
+  .stat span { display: block; margin-top: 10px; font-size: 14.5px; color: var(--on-navy); }
 
   /* Сетки карточек */
   .grid { display: grid; gap: 20px; }
-  .g3 { grid-template-columns: repeat(3, 1fr); }
-  .g4 { grid-template-columns: repeat(4, 1fr); }
-  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
   .card p { margin: 10px 0 0; color: var(--muted); font-size: 15.5px; }
   .card ul { margin: 14px 0 0; padding: 0; list-style: none; font-size: 15px; color: var(--muted); }
@@ -105,13 +126,13 @@
   .num { font: 500 italic 30px/1 var(--serif); color: var(--gold-dark); margin-bottom: 14px; }
 
   .pains { background: var(--cream-2); }
-  .pain { border-left: 3px solid var(--gold); padding: 4px 0 4px 20px; }
+  .pain { border-top: 1px solid var(--gold); padding: 18px 0 0; }
   .pain h3 { font-size: 20px; }
   .pain p { margin: 8px 0 0; color: var(--muted); font-size: 15.5px; }
 
   /* Тарифы */
   .plan { display: flex; flex-direction: column; }
-  .plan .for { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa-soft); }
+  .plan .for { font-size: 15px; font-weight: 600; color: var(--cocoa-soft); }
   .plan h3 { margin-top: 8px; font-size: 26px; }
   .price { margin: 16px 0 4px; font: 600 30px/1.1 var(--serif); color: var(--navy); }
   .price small { font: 500 14px var(--sans); color: var(--muted); }
@@ -120,22 +141,21 @@
   .plan.best { background: var(--navy); border-color: var(--navy); color: var(--cream); }
   .plan.best h3, .plan.best .price { color: var(--cream); }
   .plan.best .for { color: var(--gold); }
-  .plan.best ul, .plan.best .price small { color: #d9d2c5; }
-  .todo { display: inline-block; font: 600 11px var(--sans); letter-spacing: .06em; text-transform: uppercase; background: #fbe9c4; color: #7a5a12; border-radius: 6px; padding: 3px 8px; vertical-align: middle; }
+  .plan.best ul, .plan.best .price small { color: var(--on-navy); }
+  .todo { display: inline-block; font: 600 13px var(--sans); background: var(--todo-bg); color: var(--todo-ink); border-radius: 6px; padding: 3px 8px; vertical-align: middle; }
 
   /* Как мы работаем */
   .work { background: var(--navy); color: var(--cream); }
   .work h2, .work h3 { color: var(--cream); }
-  .work .eyebrow { color: var(--gold); }
-  .work .lead { color: #d9d2c5; }
-  .work .card { background: var(--navy-2); border-color: #3b4a6e; }
-  .work .card p { color: #d9d2c5; }
+  .work .lead { color: var(--on-navy); }
+  .work .card { background: var(--navy-2); border-color: var(--navy-line); color: var(--cream); }
+  .work .card p { color: var(--on-navy); }
   .work .num { color: var(--gold); }
 
   /* Основатели */
-  .founder { display: grid; grid-template-columns: 220px 1fr; gap: 26px; align-items: center; padding: 22px; }
+  .founder { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 26px; align-items: center; padding: 22px; }
   .founder img { width: 220px; height: 270px; object-fit: cover; border-radius: 14px; }
-  .founder .role { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa-soft); }
+  .founder .role { font-size: 15px; font-weight: 600; color: var(--cocoa-soft); }
   .founder h3 { font-size: 28px; margin-top: 6px; }
   .founder blockquote { margin: 14px 0 0; font: 500 italic 19px/1.45 var(--serif); color: var(--cocoa); }
   .roles { margin-top: 20px; }
@@ -149,39 +169,39 @@
   .vs h3 { font-size: 24px; margin-bottom: 6px; }
   .vs .yes { background: var(--navy); border-color: var(--navy); }
   .vs .yes h3 { color: var(--cream); }
-  .vs .yes ul { color: #d9d2c5; }
-  .vs .no li::before { background: #c9bba6; }
+  .vs .yes ul { color: var(--on-navy); }
+  .vs .no li::before { background: var(--bullet-soft); }
   .facts { margin-top: 20px; }
   .facts .card { padding: 22px; }
   .facts b { display: block; font: 600 21px/1.25 var(--serif); color: var(--navy); }
   .facts span { display: block; margin-top: 8px; font-size: 14.5px; color: var(--muted); }
 
   /* Кейсы */
-  .case .tag { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa-soft); margin-bottom: 10px; }
+  .case .tag { font-size: 15px; font-weight: 600; color: var(--cocoa-soft); margin-top: 4px; }
   .case h3 { font-size: 21px; }
   .case .res { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink); font-weight: 500; }
 
   .direct { margin-top: 28px; font-size: 15px; color: var(--muted); }
   .direct a { display: inline-block; margin: 8px 16px 0 0; font-weight: 600; color: var(--navy); text-decoration-color: var(--gold); text-underline-offset: 4px; }
   .direct .tel { display: block; font: 600 26px/1.2 var(--serif); text-decoration: none; margin-top: 6px; }
-  footer a { color: #f3dca6; text-underline-offset: 3px; }
+  footer a { color: var(--on-navy-accent); text-underline-offset: 3px; }
   footer .cols { display: grid; gap: 4px; }
-  footer .legal { width: 100%; border-top: 1px solid #3b4a6e; padding-top: 18px; font-size: 13px; color: #a9a497; display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; }
+  footer .legal { width: 100%; border-top: 1px solid var(--navy-line); padding-top: 18px; font-size: 13px; color: var(--on-navy-soft); display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; }
 
   /* Интерактив: квиз, тест, калькулятор, вкладки, кнопка связи */
   [hidden] { display: none !important; }
   .box { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 40px; max-width: 820px; }
   .steps { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13.5px; font-weight: 600; color: var(--cocoa-soft); }
   .bar { height: 6px; border-radius: 6px; background: var(--cream-2); margin: 12px 0 26px; overflow: hidden; }
-  .bar i { display: block; height: 100%; width: 0; background: var(--gold); border-radius: 6px; transition: width .25s; }
+  .bar i { display: block; height: 100%; width: 100%; background: var(--gold); border-radius: 6px; transform: scaleX(0); transform-origin: left; transition: transform .25s; }
   .box h3 { font-size: 26px; }
-  .opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
-  .opt { font: 600 16px var(--sans); color: var(--navy); background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; text-align: left; cursor: pointer; transition: border-color .15s, background .15s, transform .15s; }
-  .opt:hover { border-color: var(--gold); background: #fffdf8; transform: translateY(-1px); }
+  .opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+  .opt { font: 600 16px var(--sans); color: var(--navy); background: var(--field); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; text-align: left; cursor: pointer; transition: border-color .15s, background .15s, transform .15s; }
+  .opt:hover { border-color: var(--gold); background: var(--paper); transform: translateY(-1px); }
   .opt:focus-visible, .tab:focus-visible, .back:focus-visible, .fab-btn:focus-visible, input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   .live { font-size: 14px; font-weight: 600; color: var(--cocoa-soft); }
   .live b { font: 600 20px var(--serif); color: var(--navy); margin-left: 6px; white-space: nowrap; }
-  .opt.on { border-color: var(--gold-dark); background: #fbf1da; }
+  .opt.on { border-color: var(--gold-dark); background: var(--gold-wash); }
   .opt.on::before { content: "✓ "; color: var(--gold-dark); }
   .hint { margin: 8px 0 0; font-size: 14.5px; color: var(--muted); }
   .next { margin-top: 22px; margin-right: 18px; }
@@ -196,9 +216,9 @@
   .result .big small { font: 500 16px var(--sans); color: var(--muted); }
   .result p { color: var(--muted); margin: 10px 0 0; }
   .result .acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-  .risk-low { color: #3f7a4f !important; } .risk-mid { color: var(--gold-dark) !important; } .risk-high { color: #a8432f !important; }
+  .risk-low { color: var(--ok) !important; } .risk-mid { color: var(--gold-dark) !important; } .risk-high { color: var(--bad) !important; }
 
-  .calc { margin-top: 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+  .calc { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 36px; align-items: center; }
   .calc label { font-size: 15px; color: var(--cocoa); }
   .calc output { display: block; font: 600 34px/1.1 var(--serif); color: var(--navy); margin: 6px 0 14px; }
   input[type=range] { width: 100%; padding: 0; border: 0; background: transparent; accent-color: var(--gold-dark); height: 28px; cursor: pointer; }
@@ -220,10 +240,10 @@
   details.more p { margin: 10px 0 0; max-width: none; }
 
   .fab { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-  .fab-btn { width: 60px; height: 60px; border-radius: 50%; border: 0; background: var(--gold); color: var(--navy); cursor: pointer; box-shadow: 0 12px 28px -10px rgba(31,42,68,.6); display: grid; place-items: center; }
+  .fab-btn { width: 60px; height: 60px; border-radius: 50%; border: 0; background: var(--gold); color: var(--navy); cursor: pointer; box-shadow: 0 12px 28px -10px var(--shadow-navy); display: grid; place-items: center; }
   .fab-btn svg { width: 28px; height: 28px; }
   .fab-menu { display: grid; gap: 8px; }
-  .fab-menu a { background: var(--navy); color: var(--cream); text-decoration: none; font: 600 15px var(--sans); padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 24px -12px rgba(31,42,68,.7); text-align: center; }
+  .fab-menu a { background: var(--navy); color: var(--cream); text-decoration: none; font: 600 15px var(--sans); padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 24px -12px var(--shadow-navy); text-align: center; }
   .fab-menu a:hover { background: var(--navy-2); }
 
   /* Вопросы */
@@ -236,10 +256,10 @@
   details p { margin: 0 0 22px; color: var(--muted); max-width: 700px; }
 
   /* Заявка */
-  .lead-box { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .lead-box { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: start; }
   form { display: grid; gap: 14px; }
   label { font-size: 13.5px; font-weight: 600; color: var(--cocoa); display: grid; gap: 6px; }
-  input, textarea { font: 400 16px var(--sans); color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 12px; padding: 14px 16px; width: 100%; }
+  input, textarea { font: 400 16px var(--sans); color: var(--ink); background: var(--field); border: 1.5px solid var(--line); border-radius: 12px; padding: 14px 16px; width: 100%; }
   textarea { resize: vertical; min-height: 96px; }
   .form-msg { font-size: 14px; color: var(--muted); min-height: 22px; margin: 0; }
   .checks { list-style: none; padding: 0; margin: 24px 0 0; }
@@ -251,18 +271,18 @@
   .job .wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
   .job p { margin: 10px 0 0; color: var(--muted); max-width: 620px; }
 
-  footer { background: var(--navy); color: #d9d2c5; padding: 44px 0; font-size: 14.5px; }
+  footer { background: var(--navy); color: var(--on-navy); padding: 44px 0; font-size: 14.5px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
   footer .logo b { color: var(--cream); }
   footer .logo span { color: var(--gold); }
-  footer .todo { background: #3b4a6e; color: #f3dca6; }
+  footer .todo { background: var(--navy-line); color: var(--on-navy-accent); }
 
   @media (max-width: 980px) {
     nav.menu { display: none; }
-    .hero .wrap, .lead-box { grid-template-columns: 1fr; }
-    .g4, .stats .wrap { grid-template-columns: repeat(2, 1fr); }
-    .g3 { grid-template-columns: 1fr; }
-    .g2 { grid-template-columns: 1fr; }
+    .hero .wrap, .lead-box { grid-template-columns: minmax(0, 1fr); }
+    .g4, .stats .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .g3 { grid-template-columns: minmax(0, 1fr); }
+    .g2 { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 600px) {
     body { font-size: 16px; }
@@ -272,25 +292,25 @@
     .top .wrap { height: 64px; }
     .top .btn { display: none; }
     .logo b { font-size: 19px; }
-    .g4 { grid-template-columns: 1fr; }
+    .g4 { grid-template-columns: minmax(0, 1fr); }
     .stat b { font-size: 38px; }
     .person figcaption { padding: 8px 10px; }
     .person figcaption b { font-size: 15px; }
     .person figcaption span { font-size: 11px; }
-    .founder { grid-template-columns: 1fr; }
+    .founder { grid-template-columns: minmax(0, 1fr); }
     .founder img { width: 100%; height: 320px; object-position: 50% 25%; }
     .lead-box { padding: 26px 20px; gap: 28px; }
     .hero-cta .btn { width: 100%; }
-    .roles.g4 { grid-template-columns: repeat(2, 1fr); }
+    .roles.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .box { padding: 24px 18px; border-radius: 18px; }
     .box h3 { font-size: 22px; }
-    .opts { grid-template-columns: 1fr; }
-    .calc { grid-template-columns: 1fr; gap: 22px; }
+    .opts { grid-template-columns: minmax(0, 1fr); }
+    .calc { grid-template-columns: minmax(0, 1fr); gap: 22px; }
     .result .acts .btn { width: 100%; }
     .tab { padding: 10px 14px; font-size: 14px; }
     footer { padding-bottom: 96px; }
   }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .opt, .bar i { transition: none; } .btn:hover, .opt:hover, .btn:active, .opt:active { transform: none; } }
 </style>
 </head>
 <body>
@@ -318,14 +338,13 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">ИП и ООО · по всей России онлайн</div>
-      <h1>Бухгалтерские услуги <em>для предпринимателей</em></h1>
+      <h1>Бухгалтерские услуги для предпринимателей</h1>
       <p class="lead">Мы берём на себя учёт, зарплату и налоговые вопросы, чтобы вы были уверены: ни один срок и ни одна цифра не будут упущены.</p>
       <div class="hero-cta">
         <a class="btn btn-gold" href="#quiz">Рассчитать стоимость</a>
         <a class="btn btn-line" href="#plans">Смотреть тарифы</a>
       </div>
-      <p class="hero-note">Шесть коротких вопросов — и вы увидите цену для вашего бизнеса.</p>
+      <p class="hero-note">Шесть коротких вопросов, и вы увидите цену для вашего бизнеса.</p>
     </div>
     <div class="duo">
       <figure class="person">
@@ -352,7 +371,6 @@
 <section class="pains">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Знакомо?</div>
       <h2>С чем к нам приходят</h2>
     </div>
     <div class="grid g3">
@@ -369,8 +387,7 @@
 <section id="services">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Услуги</div>
-      <h2>Закрываем учёт <em>целиком</em></h2>
+      <h2>Закрываем учёт целиком</h2>
       <p class="lead">Один договор вместо трёх подрядчиков: бухгалтер, специалист по зарплате и юрист работают в одной команде и знают ваш бизнес.</p>
     </div>
     <div class="grid g4">
@@ -385,8 +402,7 @@
 <section id="why" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Почему аутсорсинг</div>
-      <h2>Команда вместо <em>одного бухгалтера</em></h2>
+      <h2>Команда вместо одного бухгалтера</h2>
     </div>
     <div class="grid g2 vs">
       <div class="card yes">
@@ -433,7 +449,6 @@
 <section id="plans" class="pains">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Тарифы</div>
       <h2>Абонентское обслуживание</h2>
       <p class="lead">Фиксированная сумма в месяц, без доплат «за каждый документ». Точную стоимость называем после знакомства с вашим учётом.</p>
     </div>
@@ -450,7 +465,7 @@
         <a class="btn btn-line" href="#quiz">Рассчитать стоимость</a>
       </div>
       <div class="card plan best" data-for="ooo">
-        <div class="for">Для ООО · выбирают чаще</div><h3>Бизнес</h3>
+        <div class="for">Для ООО, выбирают чаще</div><h3>Бизнес</h3>
         <div class="price">от 15 000 ₽ <small>/ месяц</small></div>
         <ul><li>Полный бухгалтерский и налоговый учёт</li><li>Зарплата и кадры</li><li>Личный бухгалтер</li><li>Ответы на требования налоговой</li></ul>
         <a class="btn btn-gold" href="#quiz">Рассчитать стоимость</a>
@@ -468,18 +483,16 @@
 <section id="quiz">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Расчёт за 1 минуту</div>
-      <h2>Узнайте стоимость <em>для вашего бизнеса</em></h2>
+      <h2>Узнайте стоимость для вашего бизнеса</h2>
       <p class="lead">Шесть коротких вопросов. Цена меняется с каждым ответом.</p>
     </div>
-    <div class="box" id="quiz-box" aria-live="polite"></div>
+    <div class="box" id="quiz-box" aria-live="polite"><noscript><p>Калькулятор работает с включённым JavaScript. Или позвоните нам: <a href="tel:+79157770609">+7 (915) 777-06-09</a>.</p></noscript></div>
   </div>
 </section>
 
 <section id="work" class="work">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Как мы работаем</div>
       <h2>Система, а не память одного бухгалтера</h2>
       <p class="lead">Сроки, документы и задачи по каждому клиенту ведутся в единой системе. Если специалист в отпуске — работа не останавливается.</p>
     </div>
@@ -495,15 +508,14 @@
 <section id="cases" class="pains">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Кейсы</div>
       <h2>Задачи, которые мы решаем</h2>
       <p class="lead">Несколько примеров из практики. Названия компаний не раскрываем.</p>
     </div>
     <div class="grid g2">
-      <div class="card case"><div class="tag">Металлообработка · гособоронзаказ</div><h3>Требование прокуратуры по документам</h3><details class="more"><summary>Читать подробнее</summary><p>Компания работает по государственному оборонному заказу. Подготовили и передали документы по требованию прокуратуры.</p><p class="res">Документы прошли проверку без нареканий.</p></details></div>
-      <div class="card case"><div class="tag">Онлайн-школа · ИП на патенте</div><h3>Учёт доходов и расчёты с самозанятыми</h3><details class="more"><summary>Читать подробнее</summary><p>Ведём учёт доходов по курсам, расчёты с самозанятыми преподавателями и приём оплат от иностранных клиентов, консультируем по договорам.</p><p class="res">Бухгалтер закрывает сразу несколько задач владельца.</p></details></div>
-      <div class="card case"><div class="tag">Торговля · минеральная вода</div><h3>«Честный знак» и запрос налоговой</h3><details class="more"><summary>Читать подробнее</summary><p>Настроили обмен данными между системой маркировки «Честный знак» и 1С, подготовили ответ на запрос налоговой за прошлый год.</p><p class="res">Маркировка и учёт сходятся в одной базе.</p></details></div>
-      <div class="card case"><div class="tag">Пиломатериалы · ИП</div><h3>Иностранные работники и отраслевая отчётность</h3><details class="more"><summary>Читать подробнее</summary><p>Оформляем сотрудников-иностранцев и их патенты, ведём отчётность в лесной системе учёта ФГИС ЛК.</p><p class="res">Сопровождаем клиента больше двух лет.</p></details></div>
+      <div class="card case"><h3>Требование прокуратуры по документам</h3><div class="tag">Металлообработка, гособоронзаказ</div><details class="more"><summary>Читать подробнее</summary><p>Компания работает по государственному оборонному заказу. Подготовили и передали документы по требованию прокуратуры.</p><p class="res">Документы прошли проверку без нареканий.</p></details></div>
+      <div class="card case"><h3>Учёт доходов и расчёты с самозанятыми</h3><div class="tag">Онлайн-школа, ИП на патенте</div><details class="more"><summary>Читать подробнее</summary><p>Ведём учёт доходов по курсам, расчёты с самозанятыми преподавателями и приём оплат от иностранных клиентов, консультируем по договорам.</p><p class="res">Бухгалтер закрывает сразу несколько задач владельца.</p></details></div>
+      <div class="card case"><h3>«Честный знак» и запрос налоговой</h3><div class="tag">Торговля минеральной водой</div><details class="more"><summary>Читать подробнее</summary><p>Настроили обмен данными между системой маркировки «Честный знак» и 1С, подготовили ответ на запрос налоговой за прошлый год.</p><p class="res">Маркировка и учёт сходятся в одной базе.</p></details></div>
+      <div class="card case"><h3>Иностранные работники и отраслевая отчётность</h3><div class="tag">Пиломатериалы, ИП</div><details class="more"><summary>Читать подробнее</summary><p>Оформляем сотрудников-иностранцев и их патенты, ведём отчётность в лесной системе учёта ФГИС ЛК.</p><p class="res">Сопровождаем клиента больше двух лет.</p></details></div>
     </div>
   </div>
 </section>
@@ -511,7 +523,6 @@
 <section id="team">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Команда</div>
       <h2>Кто отвечает за ваш учёт</h2>
     </div>
     <div class="grid g2">
@@ -546,7 +557,6 @@
 <section class="pains" id="reviews" hidden>
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Отзывы</div>
       <h2>Что говорят клиенты</h2>
     </div>
     <div class="grid g3">
@@ -560,7 +570,6 @@
 <section id="faq">
   <div class="wrap faq">
     <div class="head">
-      <div class="eyebrow">Частые вопросы</div>
       <h2>Коротко о главном</h2>
     </div>
     <details open><summary>Как перейти к вам от другого бухгалтера?</summary><p>Мы сами принимаем дела: запрашиваем базу 1С и документы, проверяем учёт и составляем список того, что нужно исправить. От вас — доступы и контакт прежнего бухгалтера.</p></details>
@@ -574,11 +583,10 @@
 <section id="check" class="pains">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Тест</div>
       <h2>Проверьте свою бухгалтерию</h2>
       <p class="lead">Шесть вопросов «да / нет». Покажем, насколько ваш учёт под риском.</p>
     </div>
-    <div class="box" id="check-box" aria-live="polite"></div>
+    <div class="box" id="check-box" aria-live="polite"><noscript><p>Тест работает с включённым JavaScript. Или позвоните нам: <a href="tel:+79157770609">+7 (915) 777-06-09</a>.</p></noscript></div>
   </div>
 </section>
 
@@ -586,7 +594,6 @@
   <div class="wrap">
     <div class="lead-box">
       <div>
-        <div class="eyebrow">Заявка</div>
         <h2>Оставьте заявку — мы свяжемся с вами</h2>
         <ul class="checks">
           <li>Ответим на вопросы об учёте и налогах</li>
@@ -616,7 +623,6 @@
 <div class="job">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Вакансия</div>
       <h2>Ищем главного бухгалтера</h2>
       <p>Растём и приглашаем в команду опытного главного бухгалтера. Расскажите о себе — свяжемся с вами.</p>
     </div>
@@ -655,7 +661,8 @@
     </div>
     <div>Работаем по всей России онлайн</div>
     <div class="legal">
-      <span>© 2026 «Точка Прибыли» · ИП Лещёва Анастасия Сергеевна · ИНН 330708769746</span>
+      <span>© 2026 «Точка Прибыли»</span>
+      <span>ИП Лещёва Анастасия Сергеевна, ИНН 330708769746</span>
       <a href="privacy.html">Политика конфиденциальности</a>
     </div>
   </div>
@@ -711,7 +718,7 @@
       if (live) top.appendChild(live(answers.slice(0, i)));
       box.appendChild(top);
       var bar = el('div', 'bar'), fill = el('i');
-      fill.style.width = (i / questions.length * 100) + '%';
+      fill.style.transform = 'scaleX(' + (i / questions.length) + ')';
       bar.appendChild(fill); box.appendChild(bar);
       box.appendChild(el('h3', null, q.q));
       if (q.multi) box.appendChild(el('p', 'hint', 'Можно выбрать несколько вариантов или ничего.'));
@@ -773,7 +780,7 @@
   runSteps(document.getElementById('quiz-box'), QUIZ, function (box, ans, restart) {
     var q = quote(ans), extras = ans[5] || [];
     var r = el('div', 'result');
-    r.appendChild(el('div', 'eyebrow', 'Предварительный расчёт'));
+    r.appendChild(el('div', 'label', 'Предварительный расчёт'));
     var p = el('div', 'big', q.label + ' ');
     p.appendChild(el('small', null, '/ месяц'));
     r.appendChild(p);
@@ -822,7 +829,7 @@
             : n <= 3 ? ['Средний риск', 'risk-mid', 'Есть слабые места, которые могут обернуться штрафами. Разберём их вместе с нашим бухгалтером.']
             : ['Высокий риск', 'risk-high', 'В учёте несколько тревожных признаков. Лучше разобраться сейчас, пока это не стало штрафом или блокировкой счёта.'];
     var r = el('div', 'result');
-    r.appendChild(el('div', 'eyebrow', 'Результат: ' + n + ' из ' + CHECK.length + ' признаков риска'));
+    r.appendChild(el('div', 'label', 'Результат: ' + n + ' из ' + CHECK.length + ' признаков риска'));
     r.appendChild(el('div', 'big ' + lvl[1], lvl[0]));
     r.appendChild(el('p', null, lvl[2]));
     var text = 'Здравствуйте! Прошёл тест на сайте: ' + lvl[0].toLowerCase() + ' (' + n + ' из ' + CHECK.length + '). Хочу обсудить это с бухгалтером.';
