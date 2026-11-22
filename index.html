@@ -603,6 +603,7 @@
           <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
           <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://vk.ru/id429918112" target="_blank" rel="noopener">VK</a>
           <a href="mailto:zm-buhy4et@yandex.ru">zm-buhy4et@yandex.ru</a>
         </div>
       </div>
@@ -611,7 +612,7 @@
         <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7" required></label>
         <label>Коротко о бизнесе (необязательно)<textarea name="about" placeholder="Например: ООО на упрощёнке, 5 сотрудников"></textarea></label>
         <label class="consent"><input type="checkbox" name="agree" required><span>Согласен на обработку персональных данных по <a href="privacy.html" target="_blank">политике конфиденциальности</a></span></label>
-        <button class="btn btn-gold" type="submit">Отправить в WhatsApp</button>
+        <button class="btn btn-gold" type="submit">Отправить в Макс</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>
     </div>
@@ -635,6 +636,7 @@
     <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
     <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
     <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://vk.ru/id429918112" target="_blank" rel="noopener">VK</a>
     <a href="tel:+79157770609">Позвонить</a>
   </div>
   <button class="fab-btn" id="fab-btn" aria-expanded="false" aria-controls="fab-menu" aria-label="Связаться с нами">
@@ -656,6 +658,7 @@
       <a href="https://max.ru/u/f9LHodD0cOIAiNCMWBBA3Melrd806FUXMsq1GShI6vxb5RI1ptBXHcyxpxo" target="_blank" rel="noopener">Макс</a>
       <a href="https://wa.me/79157770609" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://t.me/anastasiial2018" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://vk.ru/id429918112" target="_blank" rel="noopener">VK</a>
     </div>
     <div>Работаем по всей России онлайн</div>
     <div class="legal">
@@ -700,8 +703,10 @@
     }
     var text = 'Здравствуйте! Хочу обсудить бухгалтерское обслуживание.\nИмя: ' + this.name.value.trim() + '\nТелефон: ' + this.phone.value.trim();
     if (this.about.value.trim()) text += '\nО бизнесе: ' + this.about.value.trim();
-    msg.textContent = 'Открываем WhatsApp — нажмите «Отправить» в чате.';
-    window.open(WA + encodeURIComponent(text), '_blank', 'noopener');
+    // Макс не подставляет текст в чат: копируем заявку, человек вставляет её сам
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(function () {});
+    msg.textContent = 'Текст заявки скопирован. Вставьте его в чат Макса и нажмите «Отправить».';
+    window.open(MAX, '_blank', 'noopener');
   });
 
   // Общий движок для квиза и теста. live(answers) — подпись справа от счётчика шагов
